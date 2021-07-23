@@ -2,13 +2,15 @@ const slides = document.querySelectorAll('.slide');
 
 for (const slide of slides) {
     slide.addEventListener('click', () => {
-        clearActiveClasses();
-        slide.classList.add('active');
+        clearActiveClasses(slide);
+            slide.classList.toggle('active');
     })
 }
 
-function clearActiveClasses() {
+function clearActiveClasses(currentSlide) {
     slides.forEach((slide) => {
-        slide.classList.remove('active');
+        if (slide !== currentSlide) {
+            slide.classList.remove('active');
+        }       
     })
 }
